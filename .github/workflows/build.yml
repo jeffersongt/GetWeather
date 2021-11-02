@@ -1,0 +1,29 @@
+name: CI
+
+on: [push]
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+    build_ubuntu:
+        name: Build
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: update
+              run: sudo apt update
+
+            - name: install android-sdk
+              run: sudo apt install -y android-sdk
+
+            - name: install flutter
+              run: sudo snap install flutter --classic
+
+            - name: update flutter
+              run: flutter upgrade
+
+            - name: build project
+              run: flutter build apk
