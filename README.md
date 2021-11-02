@@ -8,5 +8,5 @@
 
 # Usage
 
-- Open a terminal at the root of the repository and type : flutter run --release
+- Open a terminal at the root of the repository and type : `flutter run --release`
 - Use the app !

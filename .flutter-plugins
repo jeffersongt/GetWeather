@@ -1,5 +1,9 @@
 # This is a generated file; do not edit or check into version control.
-path_provider=/home/jguiot/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.5/
-path_provider_linux=/home/jguiot/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.0/
-path_provider_macos=/home/jguiot/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.2/
-path_provider_windows=/home/jguiot/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.3/
+geolocator=/Users/jguiot/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-7.7.1/
+geolocator_android=/Users/jguiot/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_android-2.1.0/
+geolocator_apple=/Users/jguiot/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_apple-1.2.2/
+geolocator_web=/Users/jguiot/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_web-2.0.6/
+path_provider=/Users/jguiot/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.5/
+path_provider_linux=/Users/jguiot/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.0/
+path_provider_macos=/Users/jguiot/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.2/
+path_provider_windows=/Users/jguiot/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.3/
