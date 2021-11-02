@@ -207,6 +207,7 @@ class _GetWeatherState extends State<GetWeather> {
                         controller: _btnController,
                         color: Colors.blue,
                         successColor: Colors.blue,
+                        errorColor: Colors.blue,
                         onPressed: () => {
                           searchBtn(_btnController, context),
                         },
@@ -220,20 +221,23 @@ class _GetWeatherState extends State<GetWeather> {
 
   void searchBtn(
       RoundedLoadingButtonController _btnController, BuildContext context) {
-    _btnController.success();
     Timer(const Duration(seconds: 1), () {
-      getCityWeather(getCityUrl(_textFieldController.text))
-          .then((value) => setState(() {
+      getCityWeather(getCityUrl(_textFieldController.text)).then(
+          (value) => setState(() {
+                _btnController.success();
                 city = value.city;
                 skyDesc = value.skyDesc;
                 temp = value.temp;
                 feel = value.feel;
                 humidity = value.humidity;
                 checkIdCity(value);
-              }));
-      Navigator.pop(context);
-      _textFieldController.clear();
-      _btnController.reset();
+              }), onError: (error) {
+        _btnController.error();
+      });
+      Timer(const Duration(seconds: 1), () {
+        Navigator.pop(context);
+        _textFieldController.clear();
+      });
     });
   }
 
