@@ -156,11 +156,11 @@ class _GetWeatherState extends State<GetWeather> {
   }
 
   String getCityUrl(String city) {
-    String _key =
-        'e1a37bf384234632be1873a25bb9aa13'; // hide it before publishing on github
+    String openweather_key =
+        'e1a37bf384234632be1873a25bb9aa13';
     String _url1 = 'http://api.openweathermap.org/data/2.5/weather?q=';
     String _url2 = '&units=metric&appid=';
-    String _finalUrl = _url1 + city + _url2 + _key;
+    String _finalUrl = _url1 + city + _url2 + openweather_key;
     _textFieldController.clear();
     return _finalUrl;
   }
