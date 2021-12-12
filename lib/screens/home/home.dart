@@ -31,15 +31,17 @@ class _GetWeatherState extends State<GetWeather> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'GetWeather',
-          style: TextStyle(fontFamily: GoogleFonts.bebasNeue().fontFamily),
-        ),
+        backgroundColor: Colors.white,
+        shadowColor: Colors.grey,
+        title: Text('GetWeather',
+            style: TextStyle(
+                fontFamily: GoogleFonts.satisfy().fontFamily,
+                color: Colors.black)),
         automaticallyImplyLeading: true,
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
-              icon: const Icon(Icons.search),
+              icon: const Icon(Icons.search, color: Colors.black),
               onPressed: () {
                 search();
               },
@@ -48,7 +50,7 @@ class _GetWeatherState extends State<GetWeather> {
         ),
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.location_on),
+            icon: const Icon(Icons.location_on, color: Colors.black),
             onPressed: () {
               geolocateWeather();
             },
@@ -59,86 +61,98 @@ class _GetWeatherState extends State<GetWeather> {
     );
   }
 
-  Padding appBody(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.all(30),
-        child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.20,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              image: DecorationImage(
-                  image: NetworkImage(bgImage), fit: BoxFit.cover),
-            ),
-            child: Card(
-                shadowColor: Colors.transparent,
-                color: Colors.transparent,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 5),
-                  child: Column(children: <Widget>[
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8),
-                          child: Text(
-                            city,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                                backgroundColor: Colors.grey.shade700),
-                          ),
-                        )
-                      ],
+  Stack appBody(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        Card(
+            shadowColor: Colors.transparent,
+            color: Colors.transparent,
+            child: Padding(
+                padding: const EdgeInsets.all(30),
+                child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.20,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      image: DecorationImage(
+                          image: NetworkImage(bgImage), fit: BoxFit.cover),
                     ),
-                    Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                    child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Padding(
-                              padding: const EdgeInsets.all(8),
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Text(
-                                  skyDesc,
-                                  style: TextStyle(
-                                      backgroundColor: Colors.grey.shade700),
-                                ),
-                              ))
-                        ]),
-                    Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Padding(
-                              padding: const EdgeInsets.all(8),
-                              child: Align(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  'Temp : $temp ° -- Feels : $feel °',
-                                  style: TextStyle(
-                                      backgroundColor: Colors.grey.shade700),
-                                ),
-                              )),
-                        ]),
-                    Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Padding(
-                              padding: const EdgeInsets.all(8),
-                              child: Align(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  'Humidity : $humidity %',
-                                  style: TextStyle(
-                                      backgroundColor: Colors.grey.shade700),
-                                ),
-                              )),
-                        ]),
+                        children: [
+                          Text(
+                            skyDesc,
+                            style: const TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.normal),
+                          ),
+                        ])))),
+        Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                  padding: const EdgeInsets.only(bottom: 80),
+                  child: Text(
+                    city,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                    ),
+                  )),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            'Temp : ',
+                            style: TextStyle(),
+                          ),
+                        )),
+                    Text(
+                      '$temp °C',
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 15),
+                    ),
+                    const Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Align(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              '     Feels : ',
+                              style: TextStyle(),
+                            ))),
+                    Text(
+                      '$feel °C',
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 15),
+                    ),
                   ]),
-                ))));
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            'Humidity :',
+                          ),
+                        )),
+                    Text(
+                      ' $humidity %',
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 15),
+                    ),
+                  ]),
+            ]),
+      ],
+    );
   }
 
   String getCityUrl(String city) {
@@ -187,12 +201,13 @@ class _GetWeatherState extends State<GetWeather> {
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.0))),
             content: SizedBox(
-              child: TextField(
-                controller: _textFieldController,
-                decoration:
-                    const InputDecoration(hintText: 'Search for a city'),
+                child: TextField(
+              controller: _textFieldController,
+              decoration: InputDecoration(
+                hintText: 'Search for a city',
+                hintStyle: TextStyle(fontFamily: GoogleFonts.b612().fontFamily),
               ),
-            ),
+            )),
             actions: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -203,11 +218,12 @@ class _GetWeatherState extends State<GetWeather> {
                         width: 100,
                         height: 30,
                         child: const Text('Search',
-                            style: TextStyle(color: Colors.white)),
+                            style: TextStyle(color: Colors.black)),
                         controller: _btnController,
-                        color: Colors.blue,
-                        successColor: Colors.blue,
-                        errorColor: Colors.blue,
+                        color: Colors.white,
+                        successColor: Colors.white,
+                        errorColor: Colors.white,
+                        valueColor: Colors.black,
                         onPressed: () => {
                           searchBtn(_btnController, context),
                         },

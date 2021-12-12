@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 ThemeData appTheme() {
   return ThemeData(
-    brightness: Brightness.dark,
+    brightness: Brightness.light,
     fontFamily: GoogleFonts.poppins().fontFamily,
   );
 }
