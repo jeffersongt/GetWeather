@@ -12,4 +12,4 @@
 - Open a terminal at the root of the repository and type : `flutter run --release`
 - Use the app !
 
-![D9609A18-7565-4BBE-934A-F94905319649](https://user-images.githubusercontent.com/74663089/141326809-ae230f61-a02f-4b3a-ad88-e5eb64312cee.jpeg)
+![7CDCE982-A703-4A64-98D1-DD0DB6315CDA](https://user-images.githubusercontent.com/74663089/145723157-f8bdce42-3a11-4ecf-b26e-2eef83b433bf.jpeg)
