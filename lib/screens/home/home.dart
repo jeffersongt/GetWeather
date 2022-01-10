@@ -167,7 +167,7 @@ class _GetWeatherState extends State<GetWeather> {
 
   String getGeolocationUrl(double lat, double long) {
     String _key =
-        'e1a37bf384234632be1873a25bb9aa13'; // hide it before publishing on github
+        'e1a37bf384234632be1873a25bb9aa13';
     String _url1 = 'https://api.openweathermap.org/data/2.5/onecall?lat=';
     String _url2 = '&lon=';
     String _url3 = '&exclude=hourly,daily&units=metric&appid=';
